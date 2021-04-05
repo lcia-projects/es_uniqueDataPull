@@ -86,6 +86,7 @@ class es_query:
                     ignoreFlag=True
 
             print (ignoreFlag,":", item)
+            ignoreItem=False
             if ignoreItem==False:
                 strKey=item
                 strCount=self.dataDict[item]
@@ -97,6 +98,7 @@ class es_query:
                     txt_line = strKey + "\n"
                     csv_fileWriter.write(csv_line)
                     txt_fileWriter.write(txt_line)
+                    print ("Writing:", csv_line)
 
         csv_fileWriter.close()
         txt_fileWriter.close()
