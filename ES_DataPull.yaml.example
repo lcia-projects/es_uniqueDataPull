@@ -1,0 +1,15 @@
+ES_HOST: <ES IP GOES HERE>
+ES_PORT: 9200
+ES_USER: <ES USERNAME GOES HERE>
+ES_INDEX: <ES INDEX GOES HERE>
+ES_PASSWORD: <ES PASSWORD GOES HERE>
+# queries to do at different frequencies
+ES_FIELDLIST_HOURLY: ["password.keyword","username.keyword"]
+ES_FIELDLIST_DAILY: ["src_ip"]
+ES_FIELDLIST_WEEKLY: []
+ES_FIELDLIST_MONTHLY: []
+
+#where to put the output
+OUTPUT_FOLDER: "./Output"
+#junk to ignore in query results
+IGNORE_LIST: ["192.168.","10.0.0.10","0000:0000:0000:0000:0000:0000:0000:0000","fe80:0000:0000:0000:"]

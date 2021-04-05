@@ -26,7 +26,7 @@ if __name__ == '__main__':
       exit()
 
    startTime=datetime.now()
-   OUTPUT_FOLDER="./Output/"
+   OUTPUT_FOLDER= dataPull_Config['OUTPUT_FOLDER']
    #OUTPUT_FOLDER="/Users/darrellmiller/Dropbox/Fusion Projects/Current Projects/cyber-intelligence-lists/"
    ES_HOST="http://192.168.1.95:9200"
    ES_INDEX="lookout-*"
