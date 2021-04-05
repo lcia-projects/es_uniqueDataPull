@@ -81,6 +81,7 @@ class es_query:
             itemCount+=1
             ignoreFlag=False
             for ignoreItem in IGNORE_LIST:
+                print ("    ",ignoreItem,":", item)
                 if ignoreItem in item:
                     ignoreFlag=True
 
