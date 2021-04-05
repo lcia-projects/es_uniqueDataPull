@@ -84,6 +84,7 @@ class es_query:
                 if ignoreItem in item:
                     ignoreFlag=True
 
+            print (ignoreItem,":", item)
             if ignoreItem==False:
                 strKey=item
                 strCount=self.dataDict[item]
