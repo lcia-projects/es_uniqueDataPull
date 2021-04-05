@@ -1,8 +1,8 @@
 # push lists to git
 
 import base64
-from github import Github
-from github import InputGitTreeElement
+#from github import Github
+#from github import InputGitTreeElement
 from datetime import datetime
 
 class pushToGit:
