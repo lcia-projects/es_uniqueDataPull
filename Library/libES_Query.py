@@ -56,6 +56,7 @@ class es_query:
     # TODO: build folder stucture here instead of using a bash script to do it
 
     def saveUniques(self, outputFolder, IGNORE_LIST):
+        print("IGNORE LIST:", IGNORE_LIST, type(IGNORE_LIST))
         itemCount=0
         if self.fieldname == " ":
             self.fieldname="test"
@@ -79,26 +80,27 @@ class es_query:
 
         for item in self.dataDict:
             itemCount+=1
+
+            strKey=item
+            strCount=self.dataDict[item]
+
+            strKey=strKey.replace(',','')
+            strKey=strKey.strip()
+            #if 1 < len(strKey) < 255:
+            csv_line = strKey + "," + str(strCount) + "\n"
+            txt_line = strKey + "\n"
             ignoreFlag=False
-            for ignoreItem in IGNORE_LIST:
-                print ("    ",ignoreItem,":", item)
-                if ignoreItem in item:
-                    ignoreFlag=True
-
-            print (ignoreFlag,":", item)
-
-            if ignoreItem==False:
-                strKey=item
-                strCount=self.dataDict[item]
-
-                strKey=strKey.replace(',','')
-                strKey=strKey.strip()
-                if 1 < len(strKey) < 255:
-                    csv_line = strKey + "," + str(strCount) + "\n"
-                    txt_line = strKey + "\n"
-                    csv_fileWriter.write(csv_line)
-                    txt_fileWriter.write(txt_line)
-                    print ("Writing:", csv_line)
+            # for ignoreItem in IGNORE_LIST:
+            #     if txt_line in ignoreItem:
+            #         ignoreFlag=True
+            #         print("IG ITEM:", ignoreItem, ":", txt_line, ":", ignoreFlag)
+                #print("  ",txt_line, ":", ignoreItem, ":-:", ignoreFlag)
+            if ignoreFlag==False:
+                csv_fileWriter.write(csv_line)
+                txt_fileWriter.write(txt_line)
+                #print ("Writing:", csv_line)
+            else:
+                print ("Ignore Item!")
 
         csv_fileWriter.close()
         txt_fileWriter.close()

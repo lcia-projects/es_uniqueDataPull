@@ -28,8 +28,6 @@ if __name__ == '__main__':
    startTime=datetime.now()
    OUTPUT_FOLDER= dataPull_Config['OUTPUT_FOLDER']
    #OUTPUT_FOLDER="/Users/darrellmiller/Dropbox/Fusion Projects/Current Projects/cyber-intelligence-lists/"
-   ES_HOST="http://192.168.1.95:9200"
-   ES_INDEX="lookout-*"
 
    esQueryObj=libES_Query.es_query(ES_HOST=dataPull_Config['ES_HOST'], ES_INDEX=dataPull_Config['ES_INDEX'],
                                    ES_USERNAME=dataPull_Config['ES_USER'], ES_PASSWORD=dataPull_Config['ES_PASSWORD'])
@@ -44,7 +42,7 @@ if __name__ == '__main__':
       esQueryObj.PullUniques(field_name=item)
       esQueryObj.saveUniques(OUTPUT_FOLDER, dataPull_Config['IGNORE_LIST'])
 
-   hour=00 #for testing
+   #hour=00 #for testing
    if hour==00:
       for item in dataPull_Config['ES_FIELDLIST_DAILY']:
          print("Querying: ", item)
