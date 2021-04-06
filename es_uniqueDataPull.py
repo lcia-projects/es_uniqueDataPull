@@ -36,6 +36,7 @@ if __name__ == '__main__':
    hour = todays_date.hour
    day = datetime.today().strftime('%A')
    day_no = datetime.today().strftime('%d')
+   print ("HOUR:", hour)
 
    for item in dataPull_Config['ES_FIELDLIST_HOURLY']:
       print ("Querying: ", item)
