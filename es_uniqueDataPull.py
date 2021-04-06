@@ -44,7 +44,7 @@ if __name__ == '__main__':
       esQueryObj.saveUniques(OUTPUT_FOLDER, dataPull_Config['IGNORE_LIST'])
 
    #hour=00 #for testing
-   if hour==1:
+   if hour==4:
       for item in dataPull_Config['ES_FIELDLIST_DAILY']:
          print("Querying: ", item)
          esQueryObj.PullUniques(field_name=item)
